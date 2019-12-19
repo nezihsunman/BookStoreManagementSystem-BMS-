@@ -13,7 +13,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    	<frontend-maven-plugin.version>1.8.0</frontend-maven-plugin.version>
+		<frontend-maven-plugin.version>1.8.0</frontend-maven-plugin.version>
 	</properties>
 
 	<build>
@@ -54,18 +54,18 @@
 						</goals>
 						<configuration>
 							<arguments>run build</arguments>
-            			</configuration>
+						</configuration>
 					</execution>
 					<!-- Run Unit tests with Jest -->
 					<execution>
-					<id>npm run test:unit</id>
-					<goals>
-						<goal>npm</goal>
-					</goals>
-					<phase>test</phase>
-					<configuration>
-						<arguments>run test:unit</arguments>
-					</configuration>
+						<id>npm run test:unit</id>
+						<goals>
+							<goal>npm</goal>
+						</goals>
+						<phase>test</phase>
+						<configuration>
+							<arguments>run test:unit</arguments>
+						</configuration>
 					</execution>
 					<!-- Run End2End tests with Nightwatch -->
 					<!--
