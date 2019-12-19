@@ -1,4 +1,14 @@
 # BookStoreManagementSystemBMS
 
-for installing the project 
-    go to the package jsn npm install
+Vue Cli install Globally
+
+npm install -g @vue/cli-service-global
+
+for installing the project to local 
+    go to the  root of project 
+    cd frontend
+    
+    npm install
+    
+    npm run serve
+    
