@@ -26,3 +26,21 @@
         </v-container>
     </v-form>
 </template>
+
+<script>
+    export default {
+        name: "OrderBookWindow",
+
+        methods: {
+            orderBook() {
+                console.log("Book Ordered")
+                console.log(this.bookName)
+                console.log(this.isbn)
+            }
+        }
+    }
+</script>
+
+<style scoped>
+
+</style>
