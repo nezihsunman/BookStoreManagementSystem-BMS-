@@ -45,3 +45,4 @@ export default {
         return AXIOS.post('takeBookByISBN/' + ISBN)
 
     }
+}
