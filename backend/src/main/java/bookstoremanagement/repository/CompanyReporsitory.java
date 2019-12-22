@@ -11,5 +11,6 @@ public interface CompanyReporsitory extends CrudRepository<Company, Long> {
 
     List<Company> findByCompanyName(@Param("companyName") String companyName);
 
+    
 
 }
