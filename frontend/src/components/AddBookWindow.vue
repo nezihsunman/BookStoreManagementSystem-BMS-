@@ -84,7 +84,8 @@
                 </v-col>
 
                 <v-col cols="12" sm="6" md="5">
-                    <v-btn :disabled="!bookName || !price || !isbn || !bookType || !booknumber" @click="addBook()">Add Book TO Database
+                    <v-btn :disabled="!bookName || !price || !isbn || !bookType || !booknumber" @click="addBook()">Add
+                        Book TO Database
                     </v-btn>
                 </v-col>
 
@@ -96,6 +97,7 @@
 
 <script>
     import api from "./backend-api";
+
     export default {
 
         name: "AddBookWindow",
@@ -107,9 +109,9 @@
                 bookType: '',
                 isbn: '',
                 type: '',
-                date:'',
-                publishDate:'',
-                booknumber:''
+                date: '',
+                publishDate: '',
+                booknumber: ''
             }
         }
 
@@ -120,8 +122,12 @@
                 console.log("Book Added")
                 console.log(this.price)
                 console.log(this.bookName)
-                api.addbook(this.bookName, this.isbn, this.bookType, new Date("17/06/1997"), new Date("17/06/1997"), 15, 15)
-            }
+                api.addbook(this.bookName, this.isbn, this.bookType, new Date("17/06/1997"), new Date("17/06/1997"), 15, 15).then(r => {
+                    console.log("Added")
+                }).catch(error => {
+                    console.log("Not added")
+                })
+            },
         },
         watch: {}
     }
