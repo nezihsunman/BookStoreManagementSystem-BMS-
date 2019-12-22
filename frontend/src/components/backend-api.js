@@ -14,9 +14,6 @@ export default {
     getUser(userId) {
         return AXIOS.get(`/user/` + userId);
     },
-    createUser(firstName, lastName) {
-        return AXIOS.post(`/user/` + firstName + '/' + lastName);
-    },
     getSecured(user, password) {
         return AXIOS.get(`/secured/`, {
             auth: {
@@ -42,7 +39,21 @@ export default {
         )
     },
     getBookByISBN(ISBN) {
-        return AXIOS.post('takeBookByISBN/' + ISBN)
+        return AXIOS.post('/takeBookByISBN/' + ISBN)
+
+    },
+    addUser(userName, firstName, lastName, userType) {
+        return AXIOS.post('addNewUser/' + userName + '/' + firstName + '/' + lastName + '/' + userType)
+    },
+    getUserName(userName) {
+        return AXIOS.post('getUser/' + userName)
+    },
+    orderbook(isbn, personalname, booknumber) {
+        return AXIOS.post('orderBook/' + isbn + '/' + personalname + '/' + booknumber)
 
     }
+
+
 }
+
+
