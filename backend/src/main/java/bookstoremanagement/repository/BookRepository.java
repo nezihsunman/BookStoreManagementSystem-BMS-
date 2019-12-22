@@ -2,6 +2,9 @@ package bookstoremanagement.repository;
 
 
 import bookstoremanagement.domain.Books;
+import org.h2.util.json.JSONArray;
+import org.h2.util.json.JSONObject;
+import org.h2.util.json.JSONValidationTarget;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
@@ -12,8 +15,16 @@ public interface BookRepository extends CrudRepository<Books, Long> {
 
     List<Books> findByISBN(@Param("ISBN") String ISBN);
 
-    List<Books> findByFirstName(@Param("firstname") String firstname);
+    List<Books> findByBookName(@Param("bookName") String bookName);
 
-    List<Books> findAllBy();
+    List<Books> findAllByBooknumberGreaterThan(float i);
+
+    void deleteBooksByISBN(@Param("ISBN") String ISBN);
+
+    int countBooksByISBN(@Param("ISBN") String ISBN);
+
+    Books findBooksByISBN(@Param("ISBN") String ISBN);
+
+
 
 }
