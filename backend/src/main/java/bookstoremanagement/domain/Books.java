@@ -3,29 +3,29 @@ package bookstoremanagement.domain;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Date;
 
 @Entity
-@Table(name = "books")
+@Table(name = "book")
 public class Books {
 
 
-    private String firstName;
+
 
     @Id
     private String ISBN;
 
+    private String bookName;
     private String bookType;
     private String publishDate;
     private float price;
     private String versionDate;
-    private int booknumber;
+    private float booknumber;
 
     protected Books() {
     }
 
-    public Books(String firstName , String ISBN, String bookType, String versionDate, String publishDate, Float price, int booknumber) {
-        this.firstName = firstName;
+    public Books(String bookName, String ISBN, String bookType, String versionDate, String publishDate, Float price, float booknumber) {
+        this.bookName = bookName;
         this.ISBN = ISBN;
         this.bookType = bookType;
         this.publishDate = publishDate;
@@ -39,14 +39,37 @@ public class Books {
         return super.toString();
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getBookName() {
+        return bookName;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setBookName(String firstName) {
+        this.bookName = firstName;
     }
 
+    public String getPublishDate() {
+        return publishDate;
+    }
+
+    public void setPublishDate(String publishDate) {
+        this.publishDate = publishDate;
+    }
+
+    public String getVersionDate() {
+        return versionDate;
+    }
+
+    public void setVersionDate(String versionDate) {
+        this.versionDate = versionDate;
+    }
+
+    public float getBooknumber() {
+        return booknumber;
+    }
+
+    public void setBooknumber(float booknumber) {
+        this.booknumber = booknumber;
+    }
 
     public String getISBN() {
         return ISBN;
