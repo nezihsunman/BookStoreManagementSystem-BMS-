@@ -9,16 +9,27 @@
 </template>
 
 <script>
+    import api from "./backend-api";
+
     import AddBookWindow from "./AddBookWindow";
-    import BasketWindow from "./BasketWindow";
-    import LoginWindow from "./LoginWindow";
     import OrderBookWindow from "./OrderBookWindow";
     import SearchBookWindow from "./SearchBookWindow";
-    import User from "./User";
 
     export default {
-        name: "Hello",
-        components: {User, SearchBookWindow, OrderBookWindow, LoginWindow, BasketWindow, AddBookWindow},
+        name: 'hello',
+        components: {SearchBookWindow, OrderBookWindow, AddBookWindow},
+        props: {hellomsg: {type: String, required: true}},
+		 data() {
+            return {
+                show: true,
+                componentShow: false,
+                username: '',
+                loginWindowShow: true,
+                personalName: '',
+                booknumber: '',
+            }
+        },
+		
     }
 </script>
 
