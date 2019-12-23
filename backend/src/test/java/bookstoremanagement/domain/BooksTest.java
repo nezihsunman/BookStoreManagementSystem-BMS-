@@ -16,7 +16,7 @@ class BooksTest {
 
     @Test
     void testToString() {
-        assertEquals("Book[bookName='Harry Potter', ISBN='1001001001001', bookType='Fantasy', versionDate='2019-12-12', publishDate='1997-06-26', price='25.000000', booknumber='100.000000']", books.toString());
+        assertEquals("Book[bookName='Harry Potter', ISBN='1001001001001', bookType='Fantasy', versionDate='2019-12-12', publishDate='1997-06-26', price='25,000000', booknumber='100,000000']", books.toString());
     }
 
     @Test
