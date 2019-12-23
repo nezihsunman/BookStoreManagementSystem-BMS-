@@ -1,44 +1,54 @@
 package bookstoremanagement.domain;
 
+import org.junit.Test;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class BookReservationTest {
+public class BookReservationTest {
 
     BookReservation bookReservation;
 
     @BeforeEach
-    void createBookReservation() {
+    public void createBookReservation() {
         bookReservation = new BookReservation("David", "1001001001001", 222);
     }
 
 
     @Test
-    void testToString() {
+    public void testToString() {
+        BookReservation bookReservation;
+        bookReservation = new BookReservation("David", "1001001001001", 222);
         assertEquals("Book[personName='David', ISBN='1001001001001', bookNumber='222']", bookReservation.toString());
     }
 
     @Test
-    void getPersonName() {
+    public void getPersonName() {
+
+        BookReservation bookReservation;
+        bookReservation = new BookReservation("David", "1001001001001", 222);
         assertEquals("David", bookReservation.getPersonName());
     }
 
     @Test
-    void setPersonName() {
+    public void setPersonName() {
         BookReservation bookReservation = new BookReservation();
         bookReservation.setPersonName("Richard");
         assertEquals("Richard", bookReservation.getPersonName());
     }
 
     @Test
-    void getISBN() {
+    public void getISBN() {
+
+        BookReservation bookReservation;
+        bookReservation = new BookReservation("David", "1001001001001", 222);
         assertEquals("1001001001001", bookReservation.getISBN());
     }
 
     @Test
-    void setISBN() {
+    public void setISBN() {
+        BookReservation bookReservation;
+        bookReservation = new BookReservation("David", "1001001001001", 222);
         bookReservation.setISBN("1001001001002");
         assertEquals("1001001001002", bookReservation.getISBN());
     }

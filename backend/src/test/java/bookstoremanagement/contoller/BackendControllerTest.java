@@ -5,7 +5,6 @@ import bookstoremanagement.controller.BackendController;
 import bookstoremanagement.domain.BookReservation;
 import bookstoremanagement.domain.Books;
 import bookstoremanagement.domain.User;
-import bookstoremanagement.controller.BackendController;
 import io.restassured.RestAssured;
 import org.apache.http.HttpStatus;
 import org.junit.Before;
@@ -45,7 +44,7 @@ public class BackendControllerTest {
 
     @Test
     public void sayHello() {
-        RestAssured.when()
+        when()
                 .get("/api/hello")
                 .then()
                 .statusCode(HttpStatus.SC_OK)
