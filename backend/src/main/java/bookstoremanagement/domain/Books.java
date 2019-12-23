@@ -36,7 +36,9 @@ public class Books {
 
     @Override
     public String toString() {
-        return super.toString();
+        return String.format(
+                "Book[bookName='%s', ISBN='%s', bookType='%s', versionDate='%s', publishDate='%s', price='%f', booknumber='%f']",
+                bookName, ISBN, bookType, versionDate, publishDate, price, booknumber);
     }
 
     public String getBookName() {
