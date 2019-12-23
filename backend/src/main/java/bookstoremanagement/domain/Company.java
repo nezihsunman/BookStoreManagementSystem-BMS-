@@ -25,7 +25,9 @@ public class Company {
 
     @Override
     public String toString() {
-        return super.toString();
+        return String.format(
+                "Book[companyName='%s', income='%f']",
+                companyName, income);
     }
 
     public String getCompanyName() {
