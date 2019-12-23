@@ -30,16 +30,12 @@ public class User {
                 username, firstName, lastName);
     }
 
+    public String getUsername() {
+        return this.username;
+    }
+
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getUserType() {
-        return userType;
-    }
-
-    public void setUserType(String userType) {
-        this.userType = userType;
     }
 
     public String getFirstName() {
@@ -58,8 +54,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getUsername() {
-        return this.username;
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
     }
 
 }
