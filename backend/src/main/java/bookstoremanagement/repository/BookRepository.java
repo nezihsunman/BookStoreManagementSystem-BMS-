@@ -2,9 +2,6 @@ package bookstoremanagement.repository;
 
 
 import bookstoremanagement.domain.Books;
-import org.h2.util.json.JSONArray;
-import org.h2.util.json.JSONObject;
-import org.h2.util.json.JSONValidationTarget;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 

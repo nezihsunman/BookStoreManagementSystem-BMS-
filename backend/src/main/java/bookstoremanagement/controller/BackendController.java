@@ -13,10 +13,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import javax.persistence.EntityManager;
 import java.util.ArrayList;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController()
 @RequestMapping("/api")
@@ -27,7 +25,6 @@ public class BackendController {
     public static final String HELLO_TEXT = "Hello from Spring Boot Backend!";
     public static final String SECURED_TEXT = "Hello from the secured resource!";
 
-    protected EntityManager manager;
 
     @Autowired
     private UserRepository userRepository;
@@ -38,8 +35,8 @@ public class BackendController {
     @Autowired
     private ReservationRepository reservationRepository;
 
-
-    @RequestMapping(path = "/hello", method = RequestMethod.GET)
+    @GetMapping
+    @RequestMapping(path = "/hello")
     public String sayHello() {
         LOG.info("GET called on /hello resource");
         return HELLO_TEXT;
@@ -51,8 +48,8 @@ public class BackendController {
         return userRepository.findByUsername(username);
     }
 
-
-    @RequestMapping(path = "/secured", method = GET)
+    @GetMapping
+    @RequestMapping(path = "/secured")
     public @ResponseBody
     String getSecured() {
         LOG.info("GET successfully called on /secured resource");
@@ -61,13 +58,15 @@ public class BackendController {
 
     // Forwards all routes to FrontEnd except: '/', '/index.html', '/api', '/api/**'
     // Required because of 'mode: history' usage in frontend routing, see README for further details
-    @RequestMapping(value = "{_:^(?!index\\.html|api).$}", method = {RequestMethod.GET})
+    @GetMapping
+    @RequestMapping(value = "{_:^(?!index\\.html|api).$}")
     public String redirectApi() {
         LOG.info("URL entered directly into the Browser, so we need to redirect...");
         return "forward:/";
     }
 
-    @RequestMapping(path = "/savebook/{bookName}/{ISBN}/{bookType}/{date}/{publishDate}/{price}/{booknumber}", method = RequestMethod.POST)
+    @PostMapping
+    @RequestMapping(path = "/savebook/{bookName}/{ISBN}/{bookType}/{date}/{publishDate}/{price}/{booknumber}")
     @ResponseStatus(HttpStatus.CREATED)
     public Books saveBook(@PathVariable("bookName") String bookName, @PathVariable("ISBN") String ISBN, @PathVariable("bookType") String booktype, @PathVariable("date") String date, @PathVariable("publishDate") String publishDate, @PathVariable("price") Float price, @PathVariable("booknumber") int booknumber) throws Exception {
         int count = bookRepository.countBooksByISBN(ISBN);
@@ -138,9 +137,9 @@ public class BackendController {
 
     @RequestMapping(path = "/getUser/{userName}", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.CREATED)
-    public User getUser(@PathVariable("userName") String userName) throws Exception {
+    public User getUser(@PathVariable("userName") String userName) {
         User user = userRepository.findByUsername(userName);
-        LOG.info("log is "+ user.getFirstName()+user.getUsername());
+        LOG.info("log is " + user.getFirstName() + user.getUsername());
         return user;
     }
 

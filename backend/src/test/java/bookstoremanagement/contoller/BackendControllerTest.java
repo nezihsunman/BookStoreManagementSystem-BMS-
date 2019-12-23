@@ -1,12 +1,30 @@
 package bookstoremanagement.contoller;
 
+import bookstoremanagement.SpringBootVuejsApplication;
+import bookstoremanagement.controller.BackendController;
 import bookstoremanagement.domain.BookReservation;
 import bookstoremanagement.domain.Books;
 import bookstoremanagement.domain.User;
+import bookstoremanagement.controller.BackendController;
+import io.restassured.RestAssured;
+import org.apache.http.HttpStatus;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 
-import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
+import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.when;
+import static junit.framework.TestCase.assertTrue;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.is;
+import static org.junit.Assert.assertEquals;
 
 
 @RunWith(SpringRunner.class)
@@ -14,7 +32,7 @@ import static com.sun.org.apache.xerces.internal.util.PropertyState.is;
         classes = SpringBootVuejsApplication.class,
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT
 )
-class BackendControllerTest {
+public class BackendControllerTest {
 
     @LocalServerPort
     private int port;
@@ -26,17 +44,18 @@ class BackendControllerTest {
     }
 
     @Test
-    void sayHello() {
-        when()
+    public void sayHello() {
+        RestAssured.when()
                 .get("/api/hello")
                 .then()
                 .statusCode(HttpStatus.SC_OK)
                 .assertThat()
-                .body(is(equalTo(bookstoremanagement.controller.BackendController.HELLO_TEXT)));
+                .body(is(equalTo(BackendController.HELLO_TEXT)));
     }
 
+
     @Test
-    void addNewUser_and_getUser() {
+    public void addNewUser_and_getUser() {
 
         //Created new user.
         User user1 =
@@ -71,7 +90,7 @@ class BackendControllerTest {
     }
 
     @Test
-    void getSecured() {
+    public void getSecured() {
         when()
                 .get("/api/secured")
                 .then()
@@ -81,12 +100,12 @@ class BackendControllerTest {
     }
 
     @Test
-    void redirectApi() {
+    public void redirectApi() {
 
     }
 
     @Test
-    void saveBook_and_takeBookByISBN() {
+    public void saveBook_and_takeBookByISBN() {
 
         //This book must not be in DB.
         Books subjectBook = new Books("Harry Potter", "1001001002000", "Fantasy", "2019-12-12", "1997-06-26", 25f, 100);
@@ -127,7 +146,7 @@ class BackendControllerTest {
     }
 
     @Test
-    void changeBookNumber() {
+    public void changeBookNumber() {
 
         //Book is added with bookNumber > 1.
         Books addedBook =
@@ -160,7 +179,7 @@ class BackendControllerTest {
     }
 
     @Test
-    void changeBookNumber_with_zero_book_number() {
+    public void changeBookNumber_with_zero_book_number() {
 
         //Added book with bookNumber = 0.
         Books addedBook =
@@ -196,7 +215,7 @@ class BackendControllerTest {
     }
 
     @Test
-    void takeBookData() {
+    public void takeBookData() {
 
         ArrayList<Books> addedList = new ArrayList<>();
 
@@ -242,7 +261,7 @@ class BackendControllerTest {
     }
 
     @Test
-    void saveReservation() {
+    public void saveReservation() {
 
         BookReservation bookReservation =
                 given()
