@@ -17,25 +17,18 @@ public class BookReservation {
     protected BookReservation() {
     }
 
-    public BookReservation(String personName, String ISBN,int bookNumber) {
+    public BookReservation(String personName, String ISBN, int bookNumber) {
 
-        this.ISBN = ISBN;
         this.personName = personName;
-        this.bookNumber=bookNumber;
-
+        this.ISBN = ISBN;
+        this.bookNumber = bookNumber;
     }
 
     @Override
     public String toString() {
-        return super.toString();
-    }
-
-    public String getISBN() {
-        return ISBN;
-    }
-
-    public void setISBN(String ISBN) {
-        this.ISBN = ISBN;
+        return String.format(
+                "Book[personName='%s', ISBN='%s', bookNumber='%d']",
+                personName, ISBN, bookNumber);
     }
 
     public String getPersonName() {
@@ -44,6 +37,14 @@ public class BookReservation {
 
     public void setPersonName(String bookType) {
         this.personName = bookType;
+    }
+
+    public String getISBN() {
+        return ISBN;
+    }
+
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
     }
 
 
