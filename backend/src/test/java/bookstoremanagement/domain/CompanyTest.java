@@ -17,7 +17,7 @@ class CompanyTest {
 
     @Test
     void testToString() {
-        assertEquals("Book[companyName='BookStore', income='111222.000000']", company.toString());
+        assertEquals("Book[companyName='BookStore', income='111222,000000']", company.toString());
     }
 
     @Test
