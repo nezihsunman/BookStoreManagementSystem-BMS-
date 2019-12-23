@@ -54,14 +54,12 @@
     import api from "./backend-api";
 
     import AddBookWindow from "./AddBookWindow";
-    import BasketWindow from "./BasketWindow";
     import OrderBookWindow from "./OrderBookWindow";
     import SearchBookWindow from "./SearchBookWindow";
-    import User from "./User";
 
     export default {
         name: 'hello',
-        components: {User, SearchBookWindow, OrderBookWindow, BasketWindow, AddBookWindow},
+        components: {User, SearchBookWindow, OrderBookWindow, AddBookWindow},
         props: {hellomsg: {type: String, required: true}},
         data() {
             return {
