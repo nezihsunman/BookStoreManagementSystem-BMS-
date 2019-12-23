@@ -59,7 +59,7 @@
 
     export default {
         name: 'hello',
-        components: {User, SearchBookWindow, OrderBookWindow, AddBookWindow},
+        components: {SearchBookWindow, OrderBookWindow, AddBookWindow},
         props: {hellomsg: {type: String, required: true}},
         data() {
             return {
