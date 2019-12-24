@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="181px" preserveAspectRatio="none" style="width:527px;height:181px;" version="1.1" viewBox="0 0 527 181" width="527px" zoomAndPan="magnify"><defs/><g><ellipse cx="140.6526" cy="100.9305" fill="#F8F8F8" rx="72.6526" ry="16.9305" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="119" x="81.1526" y="104.6727">AddBookWindow.vue</text><ellipse cx="287.3315" cy="100.8663" fill="#F8F8F8" rx="62.3315" ry="14.8663" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="94" x="240.3315" y="104.6085">AddNewUser.vue</text><ellipse cx="239.6127" cy="45.242" fill="#F8F8F8" rx="34.1127" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="44" x="217.6127" y="48.9842">App.vue</text><ellipse cx="140.4975" cy="157.242" fill="#F8F8F8" rx="52.4975" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="70" x="105.4975" y="160.9842">backend-api</text><ellipse cx="31.6274" cy="45.242" fill="#F8F8F8" rx="25.6274" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" font-weight="bold" lengthAdjust="spacingAndGlyphs" textLength="32" x="15.6274" y="48.9842">main</text><ellipse cx="439.4059" cy="100.8812" fill="#F8F8F8" rx="77.4059" ry="17.8812" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="130" x="374.4059" y="104.6234">OrderBookWindow.vue</text><ellipse cx="166.5416" cy="45.242" fill="#F8F8F8" rx="27.0416" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="34" x="149.5416" y="48.9842">router</text><ellipse cx="31.7132" cy="101.242" fill="#F8F8F8" rx="24.2132" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="30" x="16.7132" y="104.9842">store</text><ellipse cx="98.663" cy="45.242" fill="#F8F8F8" rx="29.163" ry="13.242" style="stroke: #383838; stroke-width: 0.5;"/><text fill="#000000" font-family="Tahoma, sans-serif" font-size="12" lengthAdjust="spacingAndGlyphs" textLength="37" x="80.163" y="48.9842">vuetify</text><!--link AddBookWindow.vue to backend-api--><path d="M140.5,118.2018 C140.5,124.6092 140.5,131.9881 140.5,138.516 " fill="none" id="AddBookWindow.vue-backend-api" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="140.5,143.7592,144.5,134.7592,140.5,138.7592,136.5,134.7592,140.5,143.7592" style="stroke: #000000; stroke-width: 0.5;"/><!--link AddNewUser.vue to backend-api--><path d="M255.24,113.8505 C230.836,122.8152 197.465,135.0743 173.002,144.0606 " fill="none" id="AddNewUser.vue-backend-api" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="168.233,145.8123,178.0603,146.4632,172.9263,144.088,175.3015,138.954,168.233,145.8123" style="stroke: #000000; stroke-width: 0.5;"/><!--link <b>main</b> to App.vue--><path d="M44.2132,33.674 C51.1624,28.247 60.2273,22.323 69.5,19.5 C122.222,3.45 140.145,5.7 193.5,19.5 C202.285,21.772 211.181,26.123 218.778,30.596 " fill="none" id="&lt;b&gt;main&lt;/b&gt;-App.vue" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="223.328,33.379,217.7367,25.2712,219.0624,30.7705,213.563,32.0962,223.328,33.379" style="stroke: #000000; stroke-width: 1.0;"/><!--link <b>main</b> to router--><path d="M44.2132,33.674 C51.1624,28.247 60.2273,22.323 69.5,19.5 C94.1604,11.993 102.7952,12.14 127.5,19.5 C135.059,21.752 142.517,25.987 148.855,30.369 " fill="none" id="&lt;b&gt;main&lt;/b&gt;-router" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="153.051,33.403,148.1023,24.8877,148.9995,30.4729,143.4142,31.3701,153.051,33.403" style="stroke: #000000; stroke-width: 1.0;"/><!--link <b>main</b> to store--><path d="M31.5,58.253 C31.5,65.434 31.5,74.6215 31.5,82.5486 " fill="none" id="&lt;b&gt;main&lt;/b&gt;-store" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="31.5,87.7951,35.5,78.7951,31.5,82.7951,27.5,78.7951,31.5,87.7951" style="stroke: #000000; stroke-width: 1.0;"/><!--link <b>main</b> to vuetify--><path d="M57.1484,45 C59.4502,45 61.752,45 64.0538,45 " fill="none" id="&lt;b&gt;main&lt;/b&gt;-vuetify" style="stroke: #000000; stroke-width: 1.0;"/><polygon fill="#000000" points="69.4247,45,60.4247,41,64.4247,45,60.4247,49,69.4247,45" style="stroke: #000000; stroke-width: 1.0;"/><!--link router to AddBookWindow.vue--><path d="M160.858,57.717 C157.849,63.968 154.055,71.8472 150.56,79.1056 " fill="none" id="router-AddBookWindow.vue" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="148.202,84.0037,155.71,77.6296,150.3709,79.4986,148.5018,74.1594,148.202,84.0037" style="stroke: #000000; stroke-width: 0.5;"/><!--link router to AddNewUser.vue--><path d="M185.406,54.438 C203.898,62.69 232.438,75.427 254.647,85.3381 " fill="none" id="router-AddNewUser.vue" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="259.284,87.4076,252.6966,80.086,254.7184,85.3692,249.4352,87.391,259.284,87.4076" style="stroke: #000000; stroke-width: 0.5;"/><!--link router to OrderBookWindow.vue--><path d="M186.552,53.981 C190.781,55.469 195.251,56.9 199.5,58 C267.902,75.7094 286.984,70.3526 356.5,83 C363.79,84.3263 371.425,85.7889 378.986,87.2828 " fill="none" id="router-OrderBookWindow.vue" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="384.205,88.3207,376.1586,82.6414,379.3011,87.345,374.5975,90.4876,384.205,88.3207" style="stroke: #000000; stroke-width: 0.5;"/><!--link router to store--><path d="M145.921,53.536 C141.81,55.026 137.521,56.571 133.5,58 C101.5818,69.344 92.3624,69.037 61.5,83 C58.0502,84.5608 54.4738,86.3881 51.0439,88.2549 " fill="none" id="router-store" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="46.4833,90.8037,56.291,89.9044,50.8478,88.3643,52.388,82.9211,46.4833,90.8037" style="stroke: #000000; stroke-width: 0.5;"/><!--link store to backend-api--><path d="M46.9452,111.055 C51.5841,113.6922 56.7131,116.5274 61.5,119 C77.9626,127.5033 96.7331,136.3297 111.846,143.2281 " fill="none" id="store-backend-api" style="stroke: #000000; stroke-width: 0.5;"/><polygon fill="#000000" points="116.412,145.3047,109.8755,137.9376,111.8606,143.2347,106.5635,145.2198,116.412,145.3047" style="stroke: #000000; stroke-width: 0.5;"/><script type="text/plantuml"><![CDATA[
+@startuml
+
+scale max 1920 width
+top to bottom direction
+
+skinparam nodesep 12
+skinparam ranksep 25
+skinparam monochrome true
+skinparam shadowing false
+skinparam defaultFontName Tahoma
+skinparam defaultFontSize 12
+skinparam roundCorner 6
+skinparam dpi 150
+skinparam arrowColor black
+skinparam arrowThickness 0.5
+skinparam packageTitleAlignment left
+
+skinparam usecase {
+  borderThickness 0.5
+}
+
+skinparam rectangle {
+  borderThickness 0.5
+}
+
+skinparam component {
+  borderThickness 1
+}
+
+
+(AddBookWindow.vue)
+(AddNewUser.vue)
+(App.vue)
+(backend-api)
+(<b>main</b>)
+(OrderBookWindow.vue)
+(router)
+(store)
+(vuetify)
+
+
+(AddBookWindow.vue) --> (backend-api)
+(AddNewUser.vue) --> (backend-api)
+(<b>main</b>) -[thickness=1]> (App.vue)
+(<b>main</b>) -[thickness=1]> (router)
+(<b>main</b>) -[thickness=1]> (store)
+(<b>main</b>) -[thickness=1]> (vuetify)
+(router) --> (AddBookWindow.vue)
+(router) --> (AddNewUser.vue)
+(router) --> (OrderBookWindow.vue)
+(router) --> (store)
+(store) --> (backend-api)
+
+@enduml
+
+
+' View and edit on https://arkit.pro
+]]></script></g></svg>
