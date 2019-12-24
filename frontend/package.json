@@ -31,6 +31,7 @@
     "@vue/cli-plugin-vuex": "4.0.5",
     "@vue/cli-service": "4.0.5",
     "@vue/test-utils": "1.0.0-beta.29",
+    "arkit": "^1.6.2",
     "chromedriver": "78.0.1",
     "geckodriver": "1.19.1",
     "node-sass": "4.13.0",
