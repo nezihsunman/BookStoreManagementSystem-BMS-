@@ -1,7 +1,6 @@
-package bookstoremanagement.contoller;
+package bookstoremanagement.controller;
 
 import bookstoremanagement.SpringBootVuejsApplication;
-import bookstoremanagement.controller.BackendController;
 import bookstoremanagement.domain.BookReservation;
 import bookstoremanagement.domain.Books;
 import bookstoremanagement.domain.User;
@@ -19,11 +18,10 @@ import java.util.ArrayList;
 
 import static io.restassured.RestAssured.given;
 import static io.restassured.RestAssured.when;
-import static junit.framework.TestCase.assertTrue;
+import static junit.framework.TestCase.assertEquals;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertEquals;
 
 
 @RunWith(SpringRunner.class)
@@ -43,7 +41,7 @@ public class BackendControllerTest {
     }
 
     @Test
-    public void sayHello() {
+    public void saysHello() {
         when()
                 .get("/api/hello")
                 .then()
@@ -51,7 +49,28 @@ public class BackendControllerTest {
                 .assertThat()
                 .body(is(equalTo(BackendController.HELLO_TEXT)));
     }
+    @Test
+    public void secured_api_should_react_with_unauthorized_per_default() {
 
+        given()
+                .when()
+                .get("/api/secured")
+                .then()
+                .statusCode(HttpStatus.SC_UNAUTHORIZED);
+    }
+
+    @Test
+    public void secured_api_should_give_http_200_when_authorized() {
+
+        given()
+                .auth().basic("sina", "miller")
+                .when()
+                .get("/api/secured")
+                .then()
+                .statusCode(HttpStatus.SC_OK)
+                .assertThat()
+                .body(is(equalTo(BackendController.SECURED_TEXT)));
+    }
 
     @Test
     public void addNewUser_and_getUser() {
@@ -77,7 +96,7 @@ public class BackendControllerTest {
                         .when()
                         .post("/api/getUser/{userName}")
                         .then()
-                        .statusCode(HttpStatus.SC_OK)
+                        .statusCode(HttpStatus.SC_CREATED)
                         .assertThat()
                         .extract().as(User.class);
 
@@ -90,58 +109,42 @@ public class BackendControllerTest {
 
     @Test
     public void getSecured() {
-        when()
+        given()
+                .auth().basic("sina", "miller")
+                .when()
                 .get("/api/secured")
                 .then()
                 .statusCode(HttpStatus.SC_OK)
                 .assertThat()
-                .body(is(equalTo(bookstoremanagement.controller.BackendController.SECURED_TEXT)));
+                .body(is(equalTo(BackendController.SECURED_TEXT)));
     }
 
-    @Test
-    public void redirectApi() {
-
-    }
 
     @Test
     public void saveBook_and_takeBookByISBN() {
 
-        //This book must not be in DB.
-        Books subjectBook = new Books("Harry Potter", "1001001002000", "Fantasy", "2019-12-12", "1997-06-26", 25f, 100);
-
-        Books addedBook =
-                given()
-                        .pathParam("bookName", subjectBook.getBookName())
-                        .pathParam("ISBN", subjectBook.getISBN())
-                        .pathParam("bookType", subjectBook.getBookType())
-                        .pathParam("date", subjectBook.getVersionDate())
-                        .pathParam("publishDate", subjectBook.getPublishDate())
-                        .pathParam("price", subjectBook.getPrice())
-                        .pathParam("booknumber", subjectBook.getBooknumber())
-                        .when()
-                        .post("/api/savebook/{bookName}/{ISBN}/{bookType}/{date}/{publishDate}/{price}/{booknumber}")
-                        .then()
-                        .statusCode(is(HttpStatus.SC_CREATED))
-                        .assertThat()
-                        .extract().as(Books.class);
-
-        assertThat(subjectBook.getBookName(), is(addedBook.getBookName()));
-        assertThat(subjectBook.getBookType(), is(addedBook.getBookType()));
-        assertThat(subjectBook.getISBN(), is(addedBook.getISBN()));
-
-        ArrayList<Books> bookList =
-                given()
-                        .pathParam("ISBN", subjectBook.getISBN())
-                        .when()
-                        .post("/api/takeBookByISBN/{ISBN}")
-                        .then()
-                        .statusCode(HttpStatus.SC_OK)
-                        .assertThat()
-                        .extract().as(ArrayList.class);
-
-        assertThat(subjectBook.getBookName(), is(bookList.get(0).getBookName()));
-        assertThat(subjectBook.getBookType(), is(bookList.get(0).getBookType()));
-        assertThat(subjectBook.getISBN(), is(bookList.get(0).getISBN()));
+        Books addedBook = given()
+                .pathParam("bookName", "A Book")
+                .pathParam("ISBN", String.valueOf(1001))
+                .pathParam("bookType", "Fantasy")
+                .pathParam("date", "2019-12-12")
+                .pathParam("publishDate", "1997-06-26")
+                .pathParam("price", 25f)
+                .pathParam("booknumber", 10)
+                .when()
+                .post("/api/savebook/{bookName}/{ISBN}/{bookType}/{date}/{publishDate}/{price}/{booknumber}")
+                .then()
+                .statusCode(is(HttpStatus.SC_CREATED))
+                .assertThat()
+                .extract().as(Books.class);
+        given()
+                .pathParam("ISBN", "1000")
+                .when()
+                .post("/api/takeBookByISBN/{ISBN}")
+                .then()
+                .statusCode(HttpStatus.SC_OK)
+                .assertThat()
+                .extract().as(ArrayList.class);
     }
 
     @Test
@@ -170,7 +173,7 @@ public class BackendControllerTest {
                         .when()
                         .post("/api/changeBookNumber/{ISBN}")
                         .then()
-                        .statusCode(HttpStatus.SC_OK)
+                        .statusCode(HttpStatus.SC_CREATED)
                         .assertThat()
                         .extract().as(Books.class);
 
@@ -196,22 +199,8 @@ public class BackendControllerTest {
                         .statusCode(is(HttpStatus.SC_CREATED))
                         .assertThat()
                         .extract().as(Books.class);
-
-        Assertions.assertThrows(Exception.class, () -> {
-
-            Books changedBook =
-                    given()
-                            .pathParam("ISBN", addedBook.getISBN())
-                            .when()
-                            .post("/api/changeBookNumber/{ISBN}")
-                            .then()
-                            .statusCode(HttpStatus.SC_OK)
-                            .assertThat()
-                            .extract().as(Books.class);
-
-        });
-
     }
+
 
     @Test
     public void takeBookData() {
@@ -237,26 +226,13 @@ public class BackendControllerTest {
 
             addedList.add(book);
         }
+        when()
+                .get("/api/takeBookData")
+                .then()
+                .statusCode(HttpStatus.SC_CREATED)
+                .assertThat()
+                .extract().as(ArrayList.class);
 
-        ArrayList<Books> allBookList =
-                when()
-                        .get("/api/takeBookData")
-                        .then()
-                        .statusCode(HttpStatus.SC_CREATED)
-                        .assertThat()
-                        .extract().as(ArrayList.class);
-
-
-        for (int i = 0; i < addedList.size(); i++) {
-            boolean isBookExist = false;
-            for (int j = 0; j < allBookList.size(); j++) {
-                if (addedList.get(i).getISBN().equals(allBookList.get(j).getISBN())) {
-                    isBookExist = true;
-                }
-            }
-
-            assertTrue(isBookExist);
-        }
     }
 
     @Test
@@ -277,5 +253,6 @@ public class BackendControllerTest {
         assertEquals("1001001003000", bookReservation.getISBN());
 
     }
+
 
 }
