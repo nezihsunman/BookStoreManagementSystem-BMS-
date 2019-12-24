@@ -13,8 +13,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.EntityManager;
 import java.util.ArrayList;
 
+import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @RestController()
 @RequestMapping("/api")
@@ -25,6 +27,7 @@ public class BackendController {
     public static final String HELLO_TEXT = "Hello from Spring Boot Backend!";
     public static final String SECURED_TEXT = "Hello from the secured resource!";
 
+    protected EntityManager manager;
 
     @Autowired
     private UserRepository userRepository;
@@ -35,21 +38,14 @@ public class BackendController {
     @Autowired
     private ReservationRepository reservationRepository;
 
-    @GetMapping
-    @RequestMapping(path = "/hello")
+
+    @RequestMapping(path = "/hello", method = RequestMethod.GET)
     public String sayHello() {
         LOG.info("GET called on /hello resource");
         return HELLO_TEXT;
     }
 
-    @GetMapping(path = "/user/{id}")
-    public User getUserById(@PathVariable("id") String username) {
-
-        return userRepository.findByUsername(username);
-    }
-
-    @GetMapping
-    @RequestMapping(path = "/secured")
+    @RequestMapping(path = "/secured", method = GET)
     public @ResponseBody
     String getSecured() {
         LOG.info("GET successfully called on /secured resource");
@@ -58,8 +54,7 @@ public class BackendController {
 
     // Forwards all routes to FrontEnd except: '/', '/index.html', '/api', '/api/**'
     // Required because of 'mode: history' usage in frontend routing, see README for further details
-    @GetMapping
-    @RequestMapping(value = "{_:^(?!index\\.html|api).$}")
+    @RequestMapping(value = "{_:^(?!index\\.html|api).$}", method = {RequestMethod.GET})
     public String redirectApi() {
         LOG.info("URL entered directly into the Browser, so we need to redirect...");
         return "forward:/";
@@ -84,8 +79,8 @@ public class BackendController {
     public Books changeBookNumber(@PathVariable("ISBN") String ISBN) throws Exception {
         if (bookRepository.findBooksByISBN(ISBN) != null) {
             Books books = bookRepository.findBooksByISBN(ISBN);
-            if (books.getPrice() == 0) {
-                throw new Exception("Book Number not added beacuse is empty");
+            if (books.getBooknumber() == 0) {
+                throw new NullPointerException("Null");
             } else if (books.getBooknumber() == 1) {
                 bookRepository.deleteBooksByISBN(ISBN);
                 LOG.info("Book number successfully saved into DB");
