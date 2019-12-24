@@ -86,7 +86,7 @@ public class BackendController {
       if (books.getBooknumber() == 0) {
         throw new NullPointerException("Null");
       } else if (books.getBooknumber() == 1) {
-        bookRepository.deleteBooksByISBN(ISBN);
+        bookRepository.delete(bookRepository.findBooksByISBN(ISBN));
         LOG.info("Book number successfully saved into DB");
         return bookRepository.findBooksByISBN(ISBN);
       } else {
