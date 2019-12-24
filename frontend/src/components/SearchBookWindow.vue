@@ -55,8 +55,10 @@
                         <v-spacer></v-spacer>
                         <v-col class="align-center" cols="12" sm="12" md="12">
                             <v-btn color="primary" text @click="closeDialog()">Return</v-btn>
-                            <v-btn color="error" text   @click="complateReservation()">Complate Reservation</v-btn>
-                            <v-btn color="primary" :disabled="true" readonly="true" >Total Price is {{basketTableTotalPrice}}</v-btn>
+                            <v-btn color="error" text @click="complateReservation()">Complate Reservation</v-btn>
+                            <v-btn color="primary" :disabled="true" readonly="true">Total Price is
+                                {{basketTableTotalPrice}}
+                            </v-btn>
                         </v-col>
                     </v-row>
 
@@ -116,7 +118,7 @@
         methods: {
             addBasket() {
                 this.basketTable.push(this.selected[0]);
-                this.basketTableTotalPrice=this.basketTableTotalPrice+this.selected[0].price;
+                this.basketTableTotalPrice = this.basketTableTotalPrice + this.selected[0].price;
             },
             takeDataFromDb() {
                 this.refreshDataTable()
@@ -153,8 +155,8 @@
                     console.log(this.basketTable[i].isbn)
                     this.deleteOneBook(this.basketTable[i].isbn)
                 }
-                this.dialogShown = false,
-                    this.takeDataFromDb()
+                this.dialogShown = false
+                this.takeDataFromDb()
                 this.basketTable = []
             }
         }
