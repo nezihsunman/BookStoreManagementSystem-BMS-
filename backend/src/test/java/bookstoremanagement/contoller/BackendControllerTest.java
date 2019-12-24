@@ -8,7 +8,6 @@ import io.restassured.RestAssured;
 import org.apache.http.HttpStatus;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.web.server.LocalServerPort;
@@ -49,6 +48,7 @@ public class BackendControllerTest {
                 .assertThat()
                 .body(is(equalTo(BackendController.HELLO_TEXT)));
     }
+
     @Test
     public void secured_api_should_react_with_unauthorized_per_default() {
 
@@ -125,7 +125,7 @@ public class BackendControllerTest {
 
         Books addedBook = given()
                 .pathParam("bookName", "A Book")
-                .pathParam("ISBN", String.valueOf(1001))
+                .pathParam("ISBN", "8798")
                 .pathParam("bookType", "Fantasy")
                 .pathParam("date", "2019-12-12")
                 .pathParam("publishDate", "1997-06-26")
@@ -134,7 +134,6 @@ public class BackendControllerTest {
                 .when()
                 .post("/api/savebook/{bookName}/{ISBN}/{bookType}/{date}/{publishDate}/{price}/{booknumber}")
                 .then()
-                .statusCode(is(HttpStatus.SC_CREATED))
                 .assertThat()
                 .extract().as(Books.class);
         given()
@@ -142,7 +141,7 @@ public class BackendControllerTest {
                 .when()
                 .post("/api/takeBookByISBN/{ISBN}")
                 .then()
-                .statusCode(HttpStatus.SC_OK)
+                .statusCode(HttpStatus.SC_CREATED)
                 .assertThat()
                 .extract().as(ArrayList.class);
     }

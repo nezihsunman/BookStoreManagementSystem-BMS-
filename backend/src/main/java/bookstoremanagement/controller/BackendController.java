@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.persistence.EntityManager;
 import java.util.ArrayList;
 
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-
 @RestController()
 @RequestMapping("/api")
 public class BackendController {
@@ -39,13 +37,13 @@ public class BackendController {
     private ReservationRepository reservationRepository;
 
 
-    @RequestMapping(path = "/hello", method = RequestMethod.GET)
+    @GetMapping(path = "/hello")
     public String sayHello() {
         LOG.info("GET called on /hello resource");
         return HELLO_TEXT;
     }
 
-    @RequestMapping(path = "/secured", method = GET)
+    @GetMapping(path = "/secured")
     public @ResponseBody
     String getSecured() {
         LOG.info("GET successfully called on /secured resource");
@@ -54,14 +52,15 @@ public class BackendController {
 
     // Forwards all routes to FrontEnd except: '/', '/index.html', '/api', '/api/**'
     // Required because of 'mode: history' usage in frontend routing, see README for further details
-    @RequestMapping(value = "{_:^(?!index\\.html|api).$}", method = {RequestMethod.GET})
+
+    @GetMapping(value = "{_:^(?!index\\.html|api).$}")
     public String redirectApi() {
         LOG.info("URL entered directly into the Browser, so we need to redirect...");
         return "forward:/";
     }
 
-    @PostMapping
-    @RequestMapping(path = "/savebook/{bookName}/{ISBN}/{bookType}/{date}/{publishDate}/{price}/{booknumber}")
+
+    @PostMapping(path = "/savebook/{bookName}/{ISBN}/{bookType}/{date}/{publishDate}/{price}/{booknumber}")
     @ResponseStatus(HttpStatus.CREATED)
     public Books saveBook(@PathVariable("bookName") String bookName, @PathVariable("ISBN") String ISBN, @PathVariable("bookType") String booktype, @PathVariable("date") String date, @PathVariable("publishDate") String publishDate, @PathVariable("price") Float price, @PathVariable("booknumber") int booknumber) throws Exception {
         int count = bookRepository.countBooksByISBN(ISBN);
@@ -74,7 +73,7 @@ public class BackendController {
         }
     }
 
-    @RequestMapping(path = "/changeBookNumber/{ISBN}", method = RequestMethod.POST)
+    @PostMapping(path = "/changeBookNumber/{ISBN}")
     @ResponseStatus(HttpStatus.CREATED)
     public Books changeBookNumber(@PathVariable("ISBN") String ISBN) throws Exception {
         if (bookRepository.findBooksByISBN(ISBN) != null) {
@@ -96,7 +95,7 @@ public class BackendController {
 
     }
 
-    @RequestMapping(path = "/takeBookData", method = RequestMethod.GET)
+    @GetMapping(path = "/takeBookData")
     @ResponseStatus(HttpStatus.CREATED)
     public ArrayList<Books> takeBookData() throws Exception {
         if (bookRepository != null) {
@@ -106,7 +105,7 @@ public class BackendController {
         throw new Exception("no book repository");
     }
 
-    @RequestMapping(path = "/takeBookByISBN/{ISBN}", method = RequestMethod.POST)
+    @PostMapping(path = "/takeBookByISBN/{ISBN}")
     @ResponseStatus(HttpStatus.CREATED)
     public ArrayList<Books> takeBookByISBN(@PathVariable("ISBN") String ISBN) throws Exception {
         if (bookRepository != null) {
@@ -117,11 +116,11 @@ public class BackendController {
         throw new Exception("no book repository");
     }
 
-    @RequestMapping(path = "/addNewUser/{userName}/{firstName}/{lastName}/{userType}", method = RequestMethod.POST)
+    @PostMapping(path = "/addNewUser/{userName}/{firstName}/{lastName}/{userType}")
     @ResponseStatus(HttpStatus.CREATED)
     public User addNewUser(@PathVariable("userName") String userName, @PathVariable("firstName") String firstName, @PathVariable("lastName") String lastName, @PathVariable("userType") String userType) throws Exception {
-        int count = bookRepository.countBooksByISBN(userName);
-        if (count == 0) {
+        User tempUser = userRepository.findByUsername(userName);
+        if (tempUser == null) {
             User user = userRepository.save(new User(userName, firstName, lastName, userType));
             LOG.info(user.toString() + " successfully saved into DB");
             return user;
@@ -130,7 +129,7 @@ public class BackendController {
         }
     }
 
-    @RequestMapping(path = "/getUser/{userName}", method = RequestMethod.POST)
+    @PostMapping(path = "/getUser/{userName}")
     @ResponseStatus(HttpStatus.CREATED)
     public User getUser(@PathVariable("userName") String userName) {
         User user = userRepository.findByUsername(userName);
@@ -138,7 +137,7 @@ public class BackendController {
         return user;
     }
 
-    @RequestMapping(path = "/orderBook/{isbn}/{personalname}/{booknumber}", method = RequestMethod.POST)
+    @PostMapping(path = "/orderBook/{isbn}/{personalname}/{booknumber}")
     @ResponseStatus(HttpStatus.CREATED)
     public BookReservation saveReservation(@PathVariable("isbn") String isbn, @PathVariable("personalname") String personalname, @PathVariable("booknumber") String booknumber) throws Exception {
         return reservationRepository.save(new BookReservation(personalname, isbn, Integer.parseInt(booknumber)));
