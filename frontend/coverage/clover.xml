@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1576781246031" clover="3.2.0">
+  <project timestamp="1576781246032" name="All files">
+    <metrics statements="39" coveredstatements="12" conditionals="2" coveredconditionals="0" methods="20" coveredmethods="3" elements="61" coveredelements="15" complexity="0" loc="39" ncloc="39" packages="2" files="8" classes="8"/>
+    <package name="src">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="App.vue" path="C:\Users\ns009292\Desktop\CS320\BookStoreManagementSystem\frontend\src\App.vue">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="23" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components">
+      <metrics statements="38" coveredstatements="11" conditionals="2" coveredconditionals="0" methods="19" coveredmethods="2"/>
+      <file name="AddBookWindow.vue" path="C:\Users\ns009292\Desktop\CS320\BookStoreManagementSystem\frontend\src\components\AddBookWindow.vue">
+        <metrics statements="6" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="98" count="1" type="stmt"/>
+        <line num="104" count="0" type="stmt"/>
+        <line num="120" count="0" type="stmt"/>
+        <line num="121" count="0" type="stmt"/>
+        <line num="122" count="0" type="stmt"/>
+        <line num="123" count="0" type="stmt"/>
+      </file>
+      <file name="BasketWindow.vue" path="C:\Users\ns009292\Desktop\CS320\BookStoreManagementSystem\frontend\src\components\BasketWindow.vue">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="24" count="0" type="stmt"/>
+      </file>
+      <file name="Hello.vue" path="C:\Users\ns009292\Desktop\CS320\BookStoreManagementSystem\frontend\src\components\Hello.vue">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="48" count="1" type="stmt"/>
+        <line num="49" count="1" type="stmt"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="52" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="60" count="1" type="stmt"/>
+      </file>
+      <file name="OrderBookWindow.vue" path="C:\Users\ns009292\Desktop\CS320\BookStoreManagementSystem\frontend\src\components\OrderBookWindow.vue">
+        <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="41" count="0" type="stmt"/>
+        <line num="42" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+      </file>
+      <file name="SearchBookWindow.vue" path="C:\Users\ns009292\Desktop\CS320\BookStoreManagementSystem\frontend\src\components\SearchBookWindow.vue">
+        <metrics statements="3" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="90" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="91" count="0" type="stmt"/>
+      </file>
+      <file name="User.vue" path="C:\Users\ns009292\Desktop\CS320\BookStoreManagementSystem\frontend\src\components\User.vue">
+        <metrics statements="12" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="7" coveredmethods="1"/>
+        <line num="22" count="2" type="stmt"/>
+        <line num="28" count="1" type="stmt"/>
+        <line num="45" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+        <line num="50" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="59" count="0" type="stmt"/>
+        <line num="60" count="0" type="stmt"/>
+        <line num="63" count="0" type="stmt"/>
+      </file>
+      <file name="backend-api.js" path="C:\Users\ns009292\Desktop\CS320\BookStoreManagementSystem\frontend\src\components\backend-api.js">
+        <metrics statements="6" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="0"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

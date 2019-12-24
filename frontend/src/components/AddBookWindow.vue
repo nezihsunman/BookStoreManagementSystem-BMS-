@@ -122,8 +122,9 @@
 
                 console.log("Book Added")
                 console.log(this.price)
-                console.log(this.bookName)
-                api.addbook(this.bookName, this.isbn, this.bookType, new Date("17/06/1997"), new Date("17/06/1997"), 15, 15).then(r => {
+                console.log(this.publishDate)
+                console.log(this.date)
+                api.addbook(this.bookName, this.isbn, this.bookType, this.date, this.publishDate, parseFloat(this.price), parseInt(this.booknumber,10)).then(r => {
                     console.log("Added")
                 }).catch(error => {
                     console.log("Not added")

@@ -61,7 +61,7 @@
                         </v-btn>
                     </v-col>
 
-                    <button v-if="showResponse" @click="retrieveUser()">Retrieve user {{user.id}} data from database
+                    <button v-if="showResponse" @click="retrieveUser()">Retrieve user {{userName}} data from database
                     </button>
 
                     <h4 v-if="showRetrievedUser">Retrieved User {{retrievedUser.firstName}}
@@ -110,7 +110,7 @@
                 api.getUser(this.userName).then(response => {
                     // JSON responses are automatically parsed.
                     this.retrievedUser = response.data;
-                    this.showRetrievedUser = true
+                    this.showRetrievedUser = false
                 })
                     .catch(e => {
                         this.errors.push(e)
